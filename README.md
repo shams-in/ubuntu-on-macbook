@@ -14,3 +14,22 @@ right click > select "Show Original" to get the actual files
 ```
 
 https://wiki.t2linux.org/guides/wifi/
+
+```
+sudo sh wifi.sh
+Password:
+Detected macOS
+Mounting the EFI partition
+Volume EFI on disk0s1 mounted
+Getting Wi-Fi firmware
+Copying this script to EFI
+Unmounting the EFI partition
+Volume EFI on disk0s1 unmounted
+
+-e Run the following commands or run this script itself in Linux now to set up Wi-Fi :-
+
+sudo umount /dev/nvme0n1p1
+sudo mkdir /tmp/apple-wifi-efi
+sudo mount /dev/nvme0n1p1 /tmp/apple-wifi-efi
+bash /tmp/apple-wifi-efi/wifi.sh
+```
