@@ -31,3 +31,18 @@ sudo ./ubuntu-gdm-set-background --reset
 
         Theme.Applications: Adwaita-dark
         
+
+## install gnome extension
+
+    sudo apt install gnome-tweaks
+    gnome-shell --version
+
+    sudo apt install gnome-shell-extensions
+
+    install extension using chrome extension - https://extensions.gnome.org/extension/3037/good-bye-gdm-flick/
+
+## fix login screen resolution
+
+    $ sudo cp ~/.config/monitors.xml /var/lib/gdm3/.config
+    $ sudo chown gdm:gdm /var/lib/gdm3/.config/monitors.xml
+    $ ls -ltra /var/lib/gdm3/.config
