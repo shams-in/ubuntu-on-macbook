@@ -78,8 +78,8 @@ rm -r ~/Downloads/refind-bin*
     #    4:                APFS Volume Preboot                 331.3 MB   disk1s3
     #    5:                APFS Volume Recovery                1.1 GB     disk1s4
 
-    $ diskutil info disk1s2 | grep 'Volume UUID'
-    # Volume UUID:          A2C2AA97-9D7B-43BF-A24A-894AFB3D9533    <-- add this to loeader
+    $ diskutil info disk1s2 | grep 'Partition UUID'
+    # Disk / Partition UUID:          A2C2AA97-9D7B-43BF-A24A-894AFB3D9533    <-- add this to loeader
 
     # final config
     dont_scan_files +,"Preboot:/A2C2AA97-9D7B-43BF-A24A-894AFB3D9533/System/Library/CoreServices/boot.efi"
@@ -105,10 +105,10 @@ rm -r ~/Downloads/refind-bin*
 ```sh
 
 # Ubuntu partition structure
-$ lsblk -o name,uudi,size
-nvme0n1p1                                           /boot/efi   {apple boot manager}
-nvme0n1p4   8CAC2830-F7B0-44A5-B661-F75AD7C2DF8B    /boot       {ubuntu boot partition}     # volume in menuentry
-nvme0n1p5   8b1d70a6-3e2a-4207-88e4-a1aea0305152    /           {ubuntu root partition}     # root in menuentry
+$ lsblk -o name,uuid,partuuid,size
+nvme0n1p1                                                                                   /boot/efi   {apple boot manager}
+nvme0n1p4   xxx                                     8CAC2830-F7B0-44A5-B661-F75AD7C2DF8B    /boot       {ubuntu boot partition}     # volume in menuentry
+nvme0n1p5   8b1d70a6-3e2a-4207-88e4-a1aea0305152                                            /           {ubuntu root partition}     # root in menuentry
 
 # 1. execute below commands as root
 $ sudo su
@@ -125,6 +125,10 @@ $ rm -rf BOOT ubuntu
 # remove efi mount from fstab
 $ nano /mnt/etc/fstab
 # comment out /boot/efi mount point
+
+[IMP]
+    volume -- PARTITION UUID (PARTUUID)
+    root=uuid -- UUID
 
 # menuentry
 dont_scan_files +,"8CAC2830-F7B0-44A5-B661-F75AD7C2DF8B:/"
