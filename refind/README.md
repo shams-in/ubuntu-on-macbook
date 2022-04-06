@@ -110,15 +110,21 @@ nvme0n1p1                                           /boot/efi   {apple boot mana
 nvme0n1p4   8CAC2830-F7B0-44A5-B661-F75AD7C2DF8B    /boot       {ubuntu boot partition}     # volume in menuentry
 nvme0n1p5   8b1d70a6-3e2a-4207-88e4-a1aea0305152    /           {ubuntu root partition}     # root in menuentry
 
-# execute below commands as root
+# 1. execute below commands as root
 $ sudo su
 
-# 1. delete `boot` and `ubuntu` dir from apple boot
-# mount apple's EFI partition
-$ mount /dev/nvme0n1p1 /mnt
-$ cd /mnt/EFI
+# 2. mount partitions
+$ mount /dev/nvme0n1p5 /mnt
+$ mount /dev/nvme0n1p4 /mnt/boot
+$ mount /dev/nvme0n1p1 /mnt/boot/efi
+
+# 3. delete `boot` and `ubuntu` dir from apple boot
+$ cd /mnt/boot/efi/EFI
 $ rm -rf BOOT ubuntu
-$ unmount /mnt
+
+# remove efi mount from fstab
+$ nano /mnt/etc/fstab
+# comment out /boot/efi mount point
 
 # menuentry
 dont_scan_files +,"8CAC2830-F7B0-44A5-B661-F75AD7C2DF8B:/"
