@@ -16,8 +16,6 @@ https://support.apple.com/en-us/HT208198
 3. Set 'Secure boot' > 'No Security'
 4. Set 'Allowed boot media' > 'Allow booting from external or removable media'
 
-````
-
 ## 1. create partition
 
     200MB -> MS-DOS FAT
@@ -43,7 +41,7 @@ diskutil unmount $IDENTIFIER
 diskutil mount $IDENTIFIER
 sudo rmdir /tmp/refind_install
 rm -r ~/Downloads/refind-bin*
-````
+```
 
 ## 4. change the label for `rEFInd` from `EFI Boot` in mac startup manager
 
