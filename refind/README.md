@@ -118,7 +118,13 @@ $ mount /dev/nvme0n1p5 /mnt
 $ mount /dev/nvme0n1p4 /mnt/boot
 $ mount /dev/nvme0n1p1 /mnt/boot/efi
 
-# 3. delete `boot` and `ubuntu` dir from apple boot
+# 3. (NEW) don't show boot menus from efi dir
+# hide default boot loaders
+# a94a9b51-3da8-40f0-8125-aa52b35c7d1a -> partuuid of 'EFI' partition
+dont_scan_files +,"a94a9b51-3da8-40f0-8125-aa52b35c7d1a:/EFI/ubuntu/grubx64.efi"
+dont_scan_files +,"a94a9b51-3da8-40f0-8125-aa52b35c7d1a:/EFI/BOOT/BOOTX64.EFI"
+
+# 3. (OLD) delete `boot` and `ubuntu` dir from apple boot
 $ cd /mnt/boot/efi/EFI
 $ rm -rf BOOT ubuntu
 
