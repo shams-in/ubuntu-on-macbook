@@ -26,9 +26,16 @@ $ bluetoothctl
 [bluetooth]# trust FC:XX:XX:XX:XX:FE
 [bluetooth]# connect FC:XX:XX:XX:XX:FE
 [E7]# paired-devices
+scan on
+
+[NEW] Device F2:5B:D2:5A:88:21 M720 Triathlon (pair 1)
+[NEW] Device F2:5B:D2:5A:88:24 M720 Triathlon (pair 2)
 
 ```
 
+# enable Simple Pairing mode
 $ sudo hciconfig hci0 sspmode 1
 $ sudo hciconfig hci0 down
 $ sudo hciconfig hci0 up
+
+https://github.com/fin-ger/logitech-m720-config

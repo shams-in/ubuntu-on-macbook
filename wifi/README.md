@@ -23,4 +23,16 @@ $ sudo nano /etc/NetworkManager/conf.d/wifi_backend.conf
 $ sudo systemctl restart NetworkManager
 
 $ reboot
+
+## install 'iwd' to get WPA2 work stably
+
+$ sudo su
+$ apt install iwd
+$ nano /etc/NetworkManager/NetworkManager.conf
+
+    [device]
+    wifi.backend=iwd
+
+$ systemctl enable --now iwd
+$ systemctl restart NetworkManager
 ```
