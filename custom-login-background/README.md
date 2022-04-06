@@ -43,6 +43,20 @@ sudo ./ubuntu-gdm-set-background --reset
 
 ## fix login screen resolution
 
-    $ sudo cp ~/.config/monitors.xml /var/lib/gdm3/.config
+```
+    $ sudo rm -rf /var/lib/gdm3/.config/monitors.xml
+
+    $ sudo cp ~/.config/monitors.xml /var/lib/gdm3/.config/
+    
     $ sudo chown gdm:gdm /var/lib/gdm3/.config/monitors.xml
+    (make sure the scale is 1)
+
     $ ls -ltra /var/lib/gdm3/.config
+
+    $ cat /var/lib/gdm3/.config/monitors.xml
+
+    sudoedit /etc/gdm3/custom.conf
+    In the file uncomment WaylandEnable=false, and save.
+
+    reboot the computer
+```
