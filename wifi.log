@@ -1,0 +1,103 @@
+
+shams@ub:~$ uname -r
+5.17.1-t2
+shams@ub:~$ sudo dmesg | grep -i brcm
+[sudo] password for shams: 
+[    2.435395] usbcore: registered new interface driver brcmfmac
+[    2.435949] brcmfmac 0000:e5:00.0: enabling device (0000 -> 0002)
+[    2.556621] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac4364b3-pcie for chip BCM4364/4
+[    2.557311] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN-u-7.7-X0.bin failed with error -2
+[    2.557349] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN-u-7.7.bin failed with error -2
+[    2.557374] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN-u.bin failed with error -2
+[    2.557394] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN.bin failed with error -2
+[    2.557417] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-X0.bin failed with error -2
+[    2.557433] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad.bin failed with error -2
+[    2.557462] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.bin failed with error -2
+[    3.146009] Bluetooth: hci0: BCM: 'brcm/BCM.hcd'
+shams@ub:~$ journalctl -k --grep=brcm
+-- Logs begin at Tue 2022-04-05 22:06:44 EDT, end at Wed 2022-04-06 00:28:21 EDT. --
+Apr 06 00:20:18 ub kernel: usbcore: registered new interface driver brcmfmac
+Apr 06 00:20:18 ub kernel: brcmfmac 0000:e5:00.0: enabling device (0000 -> 0002)
+Apr 06 00:20:19 ub kernel: brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac4364b3-pcie for chip BCM4364/4
+Apr 06 00:20:19 ub kernel: brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN-u-7.7-X0.bin failed with erro>
+Apr 06 00:20:19 ub kernel: brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN-u-7.7.bin failed with error -2
+Apr 06 00:20:19 ub kernel: brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN-u.bin failed with error -2
+Apr 06 00:20:19 ub kernel: brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN.bin failed with error -2
+Apr 06 00:20:19 ub kernel: brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-X0.bin failed with error -2
+Apr 06 00:20:19 ub kernel: brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad.bin failed with error -2
+Apr 06 00:20:19 ub kernel: brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.bin failed with error -2
+Apr 06 00:20:19 ub kernel: Bluetooth: hci0: BCM: 'brcm/BCM.hcd'
+shams@ub:~$ ls -l /lib/firmware/brcm | grep 4364
+shams@ub:~$ ls -l /lib/firmware/brcm | grep 4364*
+-rw-r--r-- 1 root root  595472 Mar 10 02:05 brcmfmac43602-pcie.ap.bin
+-rw-r--r-- 1 root root  635449 Mar 10 02:05 brcmfmac43602-pcie.bin
+-rw-r--r-- 1 root root 1105361 Mar 10 02:05 brcmfmac4366b-pcie.bin
+-rw-r--r-- 1 root root 1120971 Mar 10 02:05 brcmfmac4366c-pcie.bin
+shams@ub:~$ ls -l /lib/firmware/brcm | grep 436
+-rw-r--r-- 1 root root  595472 Mar 10 02:05 brcmfmac43602-pcie.ap.bin
+-rw-r--r-- 1 root root  635449 Mar 10 02:05 brcmfmac43602-pcie.bin
+-rw-r--r-- 1 root root 1105361 Mar 10 02:05 brcmfmac4366b-pcie.bin
+-rw-r--r-- 1 root root 1120971 Mar 10 02:05 brcmfmac4366c-pcie.bin
+shams@ub:~$ ls -l /lib/firmware/brcm | grep 4364
+shams@ub:~$ sudo dmesg | grep brcmfmac
+[    2.435395] usbcore: registered new interface driver brcmfmac
+[    2.435949] brcmfmac 0000:e5:00.0: enabling device (0000 -> 0002)
+[    2.556621] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac4364b3-pcie for chip BCM4364/4
+[    2.557311] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN-u-7.7-X0.bin failed with error -2
+[    2.557349] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN-u-7.7.bin failed with error -2
+[    2.557374] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN-u.bin failed with error -2
+[    2.557394] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN.bin failed with error -2
+[    2.557417] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-X0.bin failed with error -2
+[    2.557433] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad.bin failed with error -2
+[    2.557462] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.bin failed with error -2
+shams@ub:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+shams@ub:~$ mkdir dev
+shams@ub:~$ cd dev
+shams@ub:~/dev$ git clone git@github.com:shams-in/ubuntu-on-macbook.git
+Cloning into 'ubuntu-on-macbook'...
+The authenticity of host 'github.com (140.82.113.3)' can't be established.
+ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com,140.82.113.3' (ECDSA) to the list of known hosts.
+remote: Enumerating objects: 107, done.
+remote: Counting objects: 100% (107/107), done.
+remote: Compressing objects: 100% (91/91), done.
+remote: Total 107 (delta 23), reused 95 (delta 11), pack-reused 0
+Receiving objects: 100% (107/107), 5.45 MiB | 18.29 MiB/s, done.
+Resolving deltas: 100% (23/23), done.
+shams@ub:~/dev$ cd ubuntu-on-macbook/
+shams@ub:~/dev/ubuntu-on-macbook$ ls
+grub  INSTALL_UBUNTU.md  README.md  refind  refind.conf  SETUP.md  wifi-firmware  wifi-firmware-renamed
+shams@ub:~/dev/ubuntu-on-macbook$ cd wifi-firmware-renamed/
+shams@ub:~/dev/ubuntu-on-macbook/wifi-firmware-renamed$ ls
+'brcmfmac4364-pcie.Apple Inc.-MacBookPro16,2.txt'   brcmfmac4364-pcie.bin   brcmfmac4364-pcie.clm_blob
+shams@ub:~/dev/ubuntu-on-macbook/wifi-firmware-renamed$ mv brcmfmac4364-pcie.Apple\ Inc.-MacBookPro16\,2.txt brcmfmac4364b3-pcie.Apple\ Inc.-MacBookPro16\,2.txt 
+shams@ub:~/dev/ubuntu-on-macbook/wifi-firmware-renamed$ mv brcmfmac4364
+brcmfmac4364b3-pcie.Apple Inc.-MacBookPro16,2.txt  brcmfmac4364-pcie.clm_blob
+brcmfmac4364-pcie.bin                              
+shams@ub:~/dev/ubuntu-on-macbook/wifi-firmware-renamed$ mv brcmfmac4364-pcie.clm_blob brcmfmac4364b3-pcie.clm_blob
+shams@ub:~/dev/ubuntu-on-macbook/wifi-firmware-renamed$ mv brcmfmac4364-pcie.bin brcmfmac4364b3-pcie.bin
+shams@ub:~/dev/ubuntu-on-macbook/wifi-firmware-renamed$ cp brcmfmac4364b3-pcie.* ^C
+shams@ub:~/dev/ubuntu-on-macbook/wifi-firmware-renamed$ cp brcmfmac4364b3-pcie.* /lib/firmware/brcm
+cp: cannot create regular file '/lib/firmware/brcm/brcmfmac4364b3-pcie.Apple Inc.-MacBookPro16,2.txt': Permission denied
+cp: cannot create regular file '/lib/firmware/brcm/brcmfmac4364b3-pcie.bin': Permission denied
+cp: cannot create regular file '/lib/firmware/brcm/brcmfmac4364b3-pcie.clm_blob': Permission denied
+shams@ub:~/dev/ubuntu-on-macbook/wifi-firmware-renamed$ sudo cp brcmfmac4364b3-pcie.* /lib/firmware/brcm
+shams@ub:~/dev/ubuntu-on-macbook/wifi-firmware-renamed$ ls -l /lib/firmware/brcm | grep 4364
+-rw-r--r-- 1 root root   12905 Apr  6 00:37 brcmfmac4364b3-pcie.Apple Inc.-MacBookPro16,2.txt
+-rw-r--r-- 1 root root 1021061 Apr  6 00:37 brcmfmac4364b3-pcie.bin
+-rw-r--r-- 1 root root   32906 Apr  6 00:37 brcmfmac4364b3-pcie.clm_blob
+shams@ub:~/dev/ubuntu-on-macbook/wifi-firmware-renamed$ sudo systemctl restart NetworkManager
+shams@ub:~/dev/ubuntu-on-macbook/wifi-firmware-renamed$ sudo dmesg | grep brcmfmac
+[    2.435395] usbcore: registered new interface driver brcmfmac
+[    2.435949] brcmfmac 0000:e5:00.0: enabling device (0000 -> 0002)
+[    2.556621] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac4364b3-pcie for chip BCM4364/4
+[    2.557311] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN-u-7.7-X0.bin failed with error -2
+[    2.557349] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN-u-7.7.bin failed with error -2
+[    2.557374] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN-u.bin failed with error -2
+[    2.557394] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-HRPN.bin failed with error -2
+[    2.557417] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad-X0.bin failed with error -2
+[    2.557433] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.apple,trinidad.bin failed with error -2
+[    2.557462] brcmfmac 0000:e5:00.0: Direct firmware load for brcm/brcmfmac4364b3-pcie.bin failed with error -2
+shams@ub:~/dev/ubuntu-on-macbook/wifi-firmware-renamed$
