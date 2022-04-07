@@ -1,0 +1,1 @@
+https://wiki.t2linux.org/distributions/arch/faq/#updating-kernel

@@ -1,5 +1,5 @@
 ```
-# there should be 'ls /sys/class/backlight'
+# there should be 'acpi_video0'
 $ ls /sys/class/backlight
 
 {booted from rEFInd}
