@@ -1,5 +1,7 @@
 # install from macos
 
+theme: https://github.com/AdityaGarg8/rEFInd-minimal-modded
+
 ## disable SIP (system integrity protection)
 
 1. Restart your computer in Recovery mode Command (⌘)-R.

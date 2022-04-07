@@ -120,7 +120,7 @@ sudo systemctl restart NetworkManager
 ```
 
 
-# touch 
+# touchbar
 
 ```
 $ modinfo apple-ib-tb
@@ -148,6 +148,7 @@ kernel: apple-ib-touchbar 0003:05AC:8102.000C: tb: Failed to set touch bar mode 
 set keyboard backlight
 $ modprobe apple-ib-tb
 $ modprobe apple-ib-als
+/etc/modprobe.d/apple-touchbar.conf
 $ options apple-ib-tb fnmode=2
 $ echo 20 | sudo tee /sys/class/leds/apple::kbd_backlight/brightness
 ```
