@@ -139,3 +139,36 @@ sudo dkms install -m apple-ibridge -v 0.1
 
 Then edit /etc/modprobe.d/apple-tb.conf and add options apple-ib-tb keyboard_backlight=1 at the end
 Then reboot
+
+# touchbar
+
+```sh
+### before ### 
+
+cat /etc/modprobe.d/apple-touchbar.conf
+
+    # display f* key in touchbar
+    options apple-ib-tb fnmode=2
+
+cat /etc/modules-load.d/apple-bce.conf
+
+    cat: /etc/modules-load.d/apple-bce.conf: No such file or directory
+
+cat /etc/modules-load.d/applespi.conf
+
+    ### applespi start ###
+    apple_ib_tb
+    apple_ib_als
+    ### applespi end ###
+
+###  after ### 
+
+sudo rm /etc/modprobe.d/apple-touchbar.conf
+sudo rm /etc/modules-load.d/apple-bce.conf
+sudo rm /etc/modules-load.d/applespi.conf
+echo apple-bce | sudo tee /etc/modules-load.d/t2.conf
+
+cat /etc/modules-load.d/t2.conf    
+
+    apple-bce
+```

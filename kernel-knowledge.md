@@ -68,6 +68,7 @@ The output includes messages produced by the device drivers.
 Eg:
 
     sudo dmesg | grep brcmfmac
+    sudo dmesg -ew (realtime and tail)
 
 # journalctl
 
