@@ -40,3 +40,9 @@ $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/instal
         plugins=(... zsh-autosuggestions zsh-syntax-highlighting)
 
     $ source ~/.zshrc
+
+# iterm 2 color
+
+    curl -O https://raw.githubusercontent.com/tallpants/vscode-theme-iterm2/master/vscode.itermcolors
+
+    iTerm2 > Preferences > Profiles > Colors Tab > Color Presets > Import
