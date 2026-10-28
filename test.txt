@@ -1,0 +1,45 @@
+
+Hi everyone, 
+I’m Shamy. 
+I’m a frontend lead with more than 10 years of experience 
+	building apps in banking 
+	across retail, wealth management and commercial banking.
+
+I’m hands-on with both Angular and React. 
+	On the React side, I mainly work with TypeScript, Redux Toolkit and RTK Query. 
+I’ve also built native and cross-platform mobile banking apps with React Native for scotiaconnect commercial banking, 
+
+and I am experience using Node.js for the backend. 
+
+Security is a big part of bankin3g apps
+	and at the same time, the login experience has to be seamless for the user. 
+	So I’ve worked a lot on secure login 
+	— cookie-based sessions, 
+	OAuth with DPoP, 
+	and passwordless login with passkeys and biometrics.
+
+In my current project, 
+	I work closely with Sourav, 
+	and we follow contract-first development. 
+	Once the API contracts are agreed, 
+	we use AI to generate mocks, 
+	so the UI team can move forward without waiting on the backend. 
+	It keeps both teams unblocked.
+
+Varma walked me through this Angular to React migration. 
+	Since I’ve worked with both, I see a big advantage here: 
+	Angular is already in TypeScript, 
+	so we can reuse a lot — 
+	models, constants, helper functions, validation rules, translation files and styles. 
+	That saves time and lowers risk.
+
+I also understand a few screens are already migrated. 
+	We’ll review them first 
+	and follow the same patterns, 
+	so every screen stays consistent. 
+	Where we see gaps, 
+	we’ll suggest improvements.
+
+Its a pleasure meeting you all.
+
+Really looking forward to working with all of you.”
